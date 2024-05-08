@@ -112,10 +112,10 @@ pt = [1.46e6,1.17e6,8.23e5, 4.26e5]
 
 # fig3.savefig("jet_mm_t49.pdf")
 
-# # fig 3
-fig3 = plt.figure( dpi=300)
+# # fig 4
+fig4 = plt.figure( dpi=300)
 lw = 2
-axes = fig3.add_axes([0.15, 0.15, 0.7, 0.7]) #size of figure
+axes = fig4.add_axes([0.15, 0.15, 0.7, 0.7]) #size of figure
 axes.plot(t8203.iloc[:,-3] ,t8203.iloc[:,6]/pt[3] , 'k', lw=lw, label="n=13k")
 axes.plot(t8204.iloc[:,-3] ,t8204.iloc[:,6]/pt[3] , 'k--', lw=lw, label="n=28k")
 axes.plot(t8205.iloc[:,-3] ,t8205.iloc[:,6]/pt[3] , 'k-.', lw=lw, label="n=48k")
@@ -130,6 +130,6 @@ axes.set_title('$P/P_t$ along nozzle centerline',fontsize=14)
 axes.legend(loc=1) # 
 
 
-fig3.savefig("jet_mm_t82.pdf")
+fig4.savefig("jet_mm_t82.pdf")
 
 
