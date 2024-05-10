@@ -24,9 +24,9 @@ t103 = pd.read_csv("t103.csv", ",", skiprows=0)
 t104 = pd.read_csv("t104.csv", ",", skiprows=0)
 t105 = pd.read_csv("t105.csv", ",", skiprows=0)
 
-t152 = pd.read_csv("t152.csv", ",", skiprows=0)
 t153 = pd.read_csv("t153.csv", ",", skiprows=0)
 t154 = pd.read_csv("t154.csv", ",", skiprows=0)
+t155 = pd.read_csv("t155.csv", ",", skiprows=0)
 
 
 pt = [4.36e5,3.14e5]
@@ -87,9 +87,9 @@ pt = [4.36e5,3.14e5]
 fig3 = plt.figure( dpi=300)
 lw = 2
 axes = fig3.add_axes([0.15, 0.15, 0.7, 0.7]) #size of figure
-axes.plot(t152.iloc[:,-3] ,t152.iloc[:,6]/pt[1] , 'k', lw=lw, label="n=6k")
-axes.plot(t153.iloc[:,-3] ,t153.iloc[:,6]/pt[1] , 'k--', lw=lw, label="n=12k")
-axes.plot(t154.iloc[:,-3] ,t154.iloc[:,6]/pt[1] , 'k-.', lw=lw, label="n=18k")
+axes.plot(t153.iloc[:,-3] ,t153.iloc[:,6]/pt[1] , 'k', lw=lw, label="n=13k")
+axes.plot(t154.iloc[:,-3] ,t154.iloc[:,6]/pt[1] , 'k--', lw=lw, label="n=25k")
+axes.plot(t155.iloc[:,-3] ,t155.iloc[:,6]/pt[1] , 'k-.', lw=lw, label="n=46k")
 
 axes.errorbar(xp ,ex.iloc[4,:]  , yerr = ex.iloc[5,:] , fmt = 'o',color = 'k', 
             ecolor = 'k', elinewidth = 1, capsize=5, label="Ex")
