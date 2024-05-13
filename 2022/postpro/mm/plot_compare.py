@@ -110,9 +110,9 @@ axes = fig4.add_axes([0.15, 0.15, 0.7, 0.7]) #size of figure
 axes.plot(t8203e.iloc[:,-3] ,t8203e.iloc[:,6]/pt[3] , 'k', lw=lw, label="Euler n=13k")
 axes.plot(t8204e.iloc[:,-3] ,t8204e.iloc[:,6]/pt[3] , 'k--', lw=lw, label="Euler n=28k")
 axes.plot(t8205e.iloc[:,-3] ,t8205e.iloc[:,6]/pt[3] , 'k-.', lw=lw, label="Euler n=48k")
-axes.plot(t8203r.iloc[:,-3] ,t8203r.iloc[:,10]/pt[3] , 'b', lw=lw, label="RANS n=k")
-axes.plot(t8204r.iloc[:,-3] ,t8204r.iloc[:,10]/pt[3] , 'b--', lw=lw, label="RANS n=k")
-axes.plot(t8205r.iloc[:,-3] ,t8205r.iloc[:,10]/pt[3] , 'b-.', lw=lw, label="RANS n=k")
+axes.plot(t8203r.iloc[:,-3] ,t8203r.iloc[:,10]/pt[3] , 'b', lw=lw, label="RANS n=12k")
+axes.plot(t8204r.iloc[:,-3] ,t8204r.iloc[:,10]/pt[3] , 'b--', lw=lw, label="RANS n=25k")
+axes.plot(t8205r.iloc[:,-3] ,t8205r.iloc[:,10]/pt[3] , 'b-.', lw=lw, label="RANS n=43k")
 axes.errorbar(xp ,ex.iloc[6,:]  , yerr = ex.iloc[7,:] , fmt = 'o',color = 'k', 
             ecolor = 'k', elinewidth = 1, capsize=5, label="Ex")
 
