@@ -1,5 +1,38 @@
 #!/bin/bash
 
+# change marker name from integer to string for grid_INL.su2
+# Assigning variables
+FILENAME1="initial_grid/grid.INL.su2"
+OLD_WORD2="MARKER_TAG=       2"
+NEW_WORD2="MARKER_TAG=       nwall"
+OLD_WORD3="MARKER_TAG=       3"
+NEW_WORD3="MARKER_TAG=       cwall"
+OLD_WORD4="MARKER_TAG=       4"
+NEW_WORD4="MARKER_TAG=       vwall"
+OLD_WORD5="MARKER_TAG=       5"
+NEW_WORD5="MARKER_TAG=       twall"
+
+# Check if the file exists
+if [ ! -f "$FILENAME1" ]; then
+  echo "File $FILENAME1 does not exist."
+  exit 1
+fi
+
+# Confirming the words to be replaced
+echo "Replacing '$OLD_WORD2' with '$NEW_WORD2' in file '$FILENAME1'."
+
+# Perform the replacement using sed
+sed -i.bak "s/$OLD_WORD2/$NEW_WORD2/g" "$FILENAME1"
+sed -i.bak "s/$OLD_WORD3/$NEW_WORD3/g" "$FILENAME1"
+sed -i.bak "s/$OLD_WORD4/$NEW_WORD4/g" "$FILENAME1"
+sed -i.bak "s/$OLD_WORD5/$NEW_WORD5/g" "$FILENAME1"
+
+# Verify the replacement
+if grep -q "$NEW_WORD2" "$FILENAME2"; then
+  echo "Replacement successful. Backup saved as '$FILENAM1E.bak'."
+else
+  echo "Replacement failed or '$OLD_WORD2' not found in the file."
+fi
 
 
 #----------------------------
@@ -81,7 +114,7 @@ mpirun -n 6 SU2_CFD su2.cfg
 
 #sed -i 's/^\s*READ_BINARY_RESTART=.*$/READ_BINARY_RESTART= NO/' su2.cfg
 sed -i 's/^\s*RESTART_SOL=.*$/RESTART_SOL= YES/' su2.cfg # THIS IS FOR RESTART AT HIGHER LEVELS!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-sed -i 's/^\s*ITER=.*$/ITER= 3000/' su2.cfg
+sed -i 's/^\s*ITER=.*$/ITER= 1000/' su2.cfg
 sed -i 's/^\s*MUSCL_FLOW=.*$/MUSCL_FLOW= YES/' su2.cfg
 sed -i 's/^\s*SOLUTION_FILENAME=.*$/SOLUTION_FILENAME= 'solution_interpolated.dat'/' su2.cfg
 
@@ -144,6 +177,14 @@ do
 		REF_LENGTH=$(awk "BEGIN {print ${REF_LENGTH}*0.7}")
 		sed -i 's/^\s*REF_ELEM_LENGTH=.*$/REF_ELEM_LENGTH= '${REF_LENGTH}'/' su2.cfg
 	fi
+	# change marker name from integer to string for admesh.INL.su2
+	# Assigning variables
+	FILENAME2="admesh.INL.su2"
+	# Perform the replacement using sed
+	sed -i.bak "s/$OLD_WORD2/$NEW_WORD2/g" "$FILENAME2"
+	sed -i.bak "s/$OLD_WORD3/$NEW_WORD3/g" "$FILENAME2"
+	sed -i.bak "s/$OLD_WORD4/$NEW_WORD4/g" "$FILENAME2"
+	sed -i.bak "s/$OLD_WORD5/$NEW_WORD5/g" "$FILENAME2"
 
 	mpirun -n 6 SU2_CFD su2.cfg
 

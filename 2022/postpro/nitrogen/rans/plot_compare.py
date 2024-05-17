@@ -20,9 +20,9 @@ xp = pd.read_csv("../../taps_position.csv", " ", skiprows=0)
 xp = xp.squeeze() # from dataframe to array
 ex = pd.read_csv("pressure.csv", ",",skiprows=0, usecols=range(2,13))
 
+t102 = pd.read_csv("t102.csv", ",", skiprows=0)
 t103 = pd.read_csv("t103.csv", ",", skiprows=0)
 t104 = pd.read_csv("t104.csv", ",", skiprows=0)
-t105 = pd.read_csv("t105.csv", ",", skiprows=0)
 
 # t152 = pd.read_csv("t152.csv", ",", skiprows=0)
 # t153 = pd.read_csv("t153.csv", ",", skiprows=0)
@@ -67,9 +67,9 @@ pt = [4.36e5,3.14e5]
 fig2 = plt.figure( dpi=300)
 lw = 2
 axes = fig2.add_axes([0.15, 0.15, 0.7, 0.7]) #size of figure
-axes.plot(t103.iloc[:,-3] ,t103.iloc[:,10]/pt[0] , 'k', lw=lw, label="n=k")
-axes.plot(t104.iloc[:,-3] ,t104.iloc[:,10]/pt[0] , 'k--', lw=lw, label="n=k")
-axes.plot(t105.iloc[:,-3] ,t105.iloc[:,10]/pt[0] , 'k-.', lw=lw, label="n=k")
+axes.plot(t102.iloc[:,-3] ,t102.iloc[:,10]/pt[0] , 'k', lw=lw, label="n=k")
+axes.plot(t103.iloc[:,-3] ,t103.iloc[:,10]/pt[0] , 'k--', lw=lw, label="n=k")
+axes.plot(t104.iloc[:,-3] ,t104.iloc[:,10]/pt[0] , 'k-.', lw=lw, label="n=k")
 axes.errorbar(xp ,ex.iloc[2,:]  , yerr = ex.iloc[3,:] , fmt = 'o',color = 'k', 
             ecolor = 'k', elinewidth = 1, capsize=5, label="Ex")
 
