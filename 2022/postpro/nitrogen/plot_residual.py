@@ -35,7 +35,7 @@ axes.set_ylabel('Residual',fontsize=12)
 axes.legend(loc=0) # 
 
 
-# fig1.savefig("jet_nn_t5.pdf")
+fig1.savefig("jet_nn_rans_t6_residual.pdf")
 
 
 
