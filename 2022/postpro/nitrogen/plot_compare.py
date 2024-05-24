@@ -39,10 +39,10 @@ pt = [5.8685e5,4.2114e5]
 # fig2 = plt.figure( dpi=300)
 # lw = 2
 # axes = fig2.add_axes([0.15, 0.15, 0.7, 0.7]) #size of figure
-# axes.plot(t603e.iloc[:,-3] ,t603e.iloc[:,6]/pt[0] , 'k', lw=lw, label="Euler n=44k")
-# axes.plot(t604e.iloc[:,-3] ,t604e.iloc[:,6]/pt[0] , 'k--', lw=lw, label="Euler n=66k")
-# axes.plot(t603r.iloc[:,-3] ,t603r.iloc[:,10]/pt[0] , 'b', lw=lw, label="RANS n=54k")
-# axes.plot(t604r.iloc[:,-3] ,t604r.iloc[:,10]/pt[0] , 'b--', lw=lw, label="RANS n=121k")
+# axes.plot(t603e.iloc[:,-3] ,t603e.iloc[:,6]/pt[0] , 'k', lw=lw, label="Euler n=28k")
+# axes.plot(t604e.iloc[:,-3] ,t604e.iloc[:,6]/pt[0] , 'k--', lw=lw, label="Euler n=44k")
+# axes.plot(t603r.iloc[:,-3] ,t603r.iloc[:,10]/pt[0] , 'b', lw=lw, label="RANS n=48k")
+# axes.plot(t604r.iloc[:,-3] ,t604r.iloc[:,10]/pt[0] , 'b--', lw=lw, label="RANS n=109k")
 # axes.errorbar(xp ,ex.iloc[0,:]  , yerr = ex.iloc[1,:] , fmt = 'o',color = 'k', 
 #             ecolor = 'k', elinewidth = 1, capsize=5, label="Ex")
 
@@ -60,10 +60,10 @@ pt = [5.8685e5,4.2114e5]
 fig3 = plt.figure( dpi=300)
 lw = 2
 axes = fig3.add_axes([0.15, 0.15, 0.7, 0.7]) #size of figure
-axes.plot(t103e.iloc[:,-3] ,t103e.iloc[:,6]/pt[1] , 'k', lw=lw, label="Euler n=37k")
-axes.plot(t104e.iloc[:,-3] ,t104e.iloc[:,6]/pt[1] , 'k--', lw=lw, label="Euler n=64k")
-axes.plot(t103r.iloc[:,-3] ,t103r.iloc[:,10]/pt[1] , 'b', lw=lw, label="RANS n=47k")
-axes.plot(t104r.iloc[:,-3] ,t104r.iloc[:,10]/pt[1] , 'b--', lw=lw, label="RANS n=108k")
+axes.plot(t103e.iloc[:,-3] ,t103e.iloc[:,6]/pt[1] , 'k', lw=lw, label="Euler n=44k")
+axes.plot(t104e.iloc[:,-3] ,t104e.iloc[:,6]/pt[1] , 'k--', lw=lw, label="Euler n=83k")
+axes.plot(t103r.iloc[:,-3] ,t103r.iloc[:,10]/pt[1] , 'b', lw=lw, label="RANS n=48k")
+axes.plot(t104r.iloc[:,-3] ,t104r.iloc[:,10]/pt[1] , 'b--', lw=lw, label="RANS n=118k")
 axes.errorbar(xp ,ex.iloc[2,:]  , yerr = ex.iloc[3,:] , fmt = 'o',color = 'k', 
             ecolor = 'k', elinewidth = 1, capsize=5, label="Ex")
 
