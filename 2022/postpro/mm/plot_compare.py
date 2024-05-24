@@ -37,10 +37,10 @@ pt = [1.418e6, 5.5314e5]
 fig2 = plt.figure( dpi=300)
 lw = 2
 axes = fig2.add_axes([0.15, 0.15, 0.7, 0.7]) #size of figure
-axes.plot(t103e.iloc[:,-3] ,t103e.iloc[:,6]/pt[0] , 'k', lw=lw, label="Euler n=41k")
-axes.plot(t104e.iloc[:,-3] ,t104e.iloc[:,6]/pt[0] , 'k--', lw=lw, label="Euler n=60k")
-axes.plot(t103r.iloc[:,-3] ,t103r.iloc[:,10]/pt[0] , 'b', lw=lw, label="RANS n=47k")
-axes.plot(t104r.iloc[:,-3] ,t104r.iloc[:,10]/pt[0] , 'b--', lw=lw, label="RANS n=95k")
+axes.plot(t103e.iloc[:,-3] ,t103e.iloc[:,6]/pt[0] , 'k', lw=lw, label="Euler n=k")
+axes.plot(t104e.iloc[:,-3] ,t104e.iloc[:,6]/pt[0] , 'k--', lw=lw, label="Euler n=k")
+axes.plot(t103r.iloc[:,-3] ,t103r.iloc[:,10]/pt[0] , 'b', lw=lw, label="RANS n=k")
+axes.plot(t104r.iloc[:,-3] ,t104r.iloc[:,10]/pt[0] , 'b--', lw=lw, label="RANS n=k")
 axes.errorbar(xp ,ex.iloc[0,:]  , yerr = ex.iloc[1,:] , fmt = 'o',color = 'k', 
             ecolor = 'k', elinewidth = 1, capsize=5, label="Ex")
 
