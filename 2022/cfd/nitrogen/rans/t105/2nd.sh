@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Define a variable with a numerical value of CPU cores
-cpu=8
+cpu=4
 
 # change marker name from integer to string for grid_INL.su2
 # Assigning variables
