@@ -25,9 +25,12 @@ t103 = pd.read_csv("t103.csv", ",", skiprows=0)
 t104 = pd.read_csv("t104.csv", ",", skiprows=0)
 
 
+t703 = pd.read_csv("t703.csv", ",", skiprows=0)
+t704 = pd.read_csv("t704.csv", ",", skiprows=0)
 
 
-pt = [1.418e6, 5.5314e5]
+
+pt = [1.415e6, 5.3420e5]
 
 # axes.yaxis.set_major_formatter(FormatStrFormatter('%.2f'))
 
@@ -61,13 +64,32 @@ pt = [1.418e6, 5.5314e5]
 
 # fig1.savefig("jet_nn_t5.pdf")
 
-# fig 2
-fig2 = plt.figure( dpi=300)
+# # fig 2
+# fig2 = plt.figure( dpi=300)
+# lw = 2
+# axes = fig2.add_axes([0.15, 0.15, 0.7, 0.7]) #size of figure
+# axes.plot(t103.iloc[:,-3] ,t103.iloc[:,6]/pt[0] , 'k', lw=lw, label="n=k")
+# axes.plot(t104.iloc[:,-3] ,t104.iloc[:,6]/pt[0] , 'k--', lw=lw, label="n=k")
+# axes.errorbar(xp ,ex.iloc[0,:]  , yerr = ex.iloc[1,:] , fmt = 'o',color = 'k', 
+#             ecolor = 'k', elinewidth = 1, capsize=5, label="Ex")
+
+
+# axes.set_xlim([40, 160])
+# axes.set_ylim([0,1])
+# axes.set_xlabel('$X[mm]$',fontsize=12)
+# axes.set_ylabel('$P/P_t$',fontsize=12) 
+# axes.set_title('$P/P_t$ along nozzle centerline',fontsize=14)
+# axes.legend(loc=1) # 
+
+# fig2.savefig("jet_mm_euler_t10.pdf")
+
+# fig 3
+fig3 = plt.figure( dpi=300)
 lw = 2
-axes = fig2.add_axes([0.15, 0.15, 0.7, 0.7]) #size of figure
-axes.plot(t103.iloc[:,-3] ,t103.iloc[:,6]/pt[0] , 'k', lw=lw, label="n=k")
-axes.plot(t104.iloc[:,-3] ,t104.iloc[:,6]/pt[0] , 'k--', lw=lw, label="n=k")
-axes.errorbar(xp ,ex.iloc[0,:]  , yerr = ex.iloc[1,:] , fmt = 'o',color = 'k', 
+axes = fig3.add_axes([0.15, 0.15, 0.7, 0.7]) #size of figure
+axes.plot(t703.iloc[:,-3] ,t703.iloc[:,6]/pt[1] , 'k', lw=lw, label="n=k")
+axes.plot(t704.iloc[:,-3] ,t704.iloc[:,6]/pt[1] , 'k--', lw=lw, label="n=k")
+axes.errorbar(xp ,ex.iloc[2,:]  , yerr = ex.iloc[3,:] , fmt = 'o',color = 'k', 
             ecolor = 'k', elinewidth = 1, capsize=5, label="Ex")
 
 
@@ -78,6 +100,6 @@ axes.set_ylabel('$P/P_t$',fontsize=12)
 axes.set_title('$P/P_t$ along nozzle centerline',fontsize=14)
 axes.legend(loc=1) # 
 
-fig2.savefig("jet_mm_euler_t10.pdf")
+fig3.savefig("jet_mm_euler_t70.pdf")
 
 
