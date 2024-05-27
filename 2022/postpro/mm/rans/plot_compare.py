@@ -27,7 +27,7 @@ t104 = pd.read_csv("t104.csv", ",", skiprows=0)
 
 
 
-pt = [1.418e6, 5.5314e5]
+pt = [1.415e6, 5.3420e5]
 
 # axes.yaxis.set_major_formatter(FormatStrFormatter('%.2f'))
 
