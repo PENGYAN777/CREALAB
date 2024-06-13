@@ -7,15 +7,7 @@ cpu=8
 # Assigning variables
 FILENAME1="initial_grid/grid.INL.su2"
 OLD_WORD2="MARKER_TAG=       2"
-NEW_WORD2="MARKER_TAG=       iwall"
-OLD_WORD3="MARKER_TAG=       3"
-NEW_WORD3="MARKER_TAG=       cwall"
-OLD_WORD4="MARKER_TAG=       4"
-NEW_WORD4="MARKER_TAG=       nwall"
-OLD_WORD5="MARKER_TAG=       5"
-NEW_WORD5="MARKER_TAG=       vwall"
-OLD_WORD6="MARKER_TAG=       6"
-NEW_WORD6="MARKER_TAG=       twall"
+NEW_WORD2="MARKER_TAG=       wall"
 
 # Check if the file exists
 if [ ! -f "$FILENAME1" ]; then
@@ -28,10 +20,6 @@ echo "Replacing '$OLD_WORD2' with '$NEW_WORD2' in file '$FILENAME1'."
 
 # Perform the replacement using sed
 sed -i.bak "s/$OLD_WORD2/$NEW_WORD2/g" "$FILENAME1"
-sed -i.bak "s/$OLD_WORD3/$NEW_WORD3/g" "$FILENAME1"
-sed -i.bak "s/$OLD_WORD4/$NEW_WORD4/g" "$FILENAME1"
-sed -i.bak "s/$OLD_WORD5/$NEW_WORD5/g" "$FILENAME1"
-sed -i.bak "s/$OLD_WORD6/$NEW_WORD6/g" "$FILENAME1"
 
 # Verify the replacement
 if grep -q "$NEW_WORD6" "$FILENAME2"; then
@@ -203,10 +191,6 @@ do
 	FILENAME2="admesh.INL.su2"
 	# Perform the replacement using sed
 	sed -i.bak "s/$OLD_WORD2/$NEW_WORD2/g" "$FILENAME2"
-	sed -i.bak "s/$OLD_WORD3/$NEW_WORD3/g" "$FILENAME2"
-	sed -i.bak "s/$OLD_WORD4/$NEW_WORD4/g" "$FILENAME2"
-	sed -i.bak "s/$OLD_WORD5/$NEW_WORD5/g" "$FILENAME2"
-	sed -i.bak "s/$OLD_WORD6/$NEW_WORD6/g" "$FILENAME2"
 
 	mpirun -n $cpu SU2_CFD su2.cfg
 
