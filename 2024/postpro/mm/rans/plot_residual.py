@@ -26,7 +26,8 @@ t103 = pd.read_csv("history_3.csv", ",", skiprows=0)
 t104 = pd.read_csv("history_4.csv", ",", skiprows=0)
 t105 = pd.read_csv("history_5.csv", ",", skiprows=0)
 
-
+nc = 10
+colors = plt.cm.tab20(np.linspace(0, 1, nc))
 
 
 # axes.yaxis.set_major_formatter(FormatStrFormatter('%.2f'))
@@ -35,13 +36,17 @@ t105 = pd.read_csv("history_5.csv", ",", skiprows=0)
 fig2 = plt.figure( dpi=300)
 lw = 2
 axes = fig2.add_axes([0.15, 0.15, 0.7, 0.7]) #size of figure
-axes.plot(t100.iloc[:,2] ,t100.iloc[:,3] , 'k', lw=lw, label="level 0")
-axes.plot(t105.iloc[:,2] ,t105.iloc[:,3] , 'k--', lw=lw, label="level 5")
+axes.plot(t100.iloc[:,2] ,t100.iloc[:,3] , color=colors[0], lw=lw, label="level 0")
+axes.plot(t101.iloc[:,2] ,t101.iloc[:,3] , color=colors[1], lw=lw, label="level 1")
+axes.plot(t102.iloc[:,2] ,t102.iloc[:,3] , color=colors[2], lw=lw, label="level 2")
+axes.plot(t103.iloc[:,2] ,t103.iloc[:,3] , color=colors[3], lw=lw, label="level 3")
+axes.plot(t104.iloc[:,2] ,t104.iloc[:,3] , color=colors[4], lw=lw, label="level 4")
+axes.plot(t105.iloc[:,2] ,t105.iloc[:,3] , color=colors[5], lw=lw, label="level 5")
 
 
 
 
-# axes.set_xlim([40, 160])
+axes.set_xlim([0, 2500])
 # axes.set_ylim([0,1])
 axes.set_xlabel('Number of iteration',fontsize=12)
 axes.set_ylabel('Residual of density',fontsize=12) 
