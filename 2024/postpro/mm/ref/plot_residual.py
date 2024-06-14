@@ -36,8 +36,11 @@ colors = plt.cm.tab20(np.linspace(0, 1, nc))
 fig2 = plt.figure( dpi=300)
 lw = 2
 axes = fig2.add_axes([0.15, 0.15, 0.7, 0.7]) #size of figure
-axes.plot(t100.iloc[:,2] ,t100.iloc[:,3] , color=colors[0], lw=lw, label="1st order")
-axes.plot(t101.iloc[:,2] ,t101.iloc[:,3] , color=colors[1], lw=lw, label="2nd order")
+axes.plot(t100.iloc[:,2] ,t100.iloc[:,3] , color=colors[0], lw=lw, label="$\\rho$")
+axes.plot(t100.iloc[:,2] ,t100.iloc[:,4] , color=colors[1], lw=lw, label="$\\rho u$")
+axes.plot(t100.iloc[:,2] ,t100.iloc[:,5] , color=colors[2], lw=lw, label="$\\rho v$")
+axes.plot(t100.iloc[:,2] ,t100.iloc[:,6] , color=colors[3], lw=lw, label="$\\rho e$")
+# axes.plot(t101.iloc[:,2] ,t101.iloc[:,3] , color=colors[1], lw=lw, label="2nd order")
 # axes.plot(t102.iloc[:,2] ,t102.iloc[:,3] , color=colors[2], lw=lw, label="level 2")
 # axes.plot(t103.iloc[:,2] ,t103.iloc[:,3] , color=colors[3], lw=lw, label="level 3")
 # axes.plot(t104.iloc[:,2] ,t104.iloc[:,3] , color=colors[4], lw=lw, label="level 4")
@@ -49,7 +52,7 @@ axes.plot(t101.iloc[:,2] ,t101.iloc[:,3] , color=colors[1], lw=lw, label="2nd or
 # axes.set_xlim([0, 2500])
 # axes.set_ylim([0,1])
 axes.set_xlabel('Number of iteration',fontsize=12)
-axes.set_ylabel('Residual of density',fontsize=12) 
+axes.set_ylabel('Residual history',fontsize=12) 
 # axes.set_title('$P/P_t$ along nozzle centerline',fontsize=14)
 axes.legend(loc=0) # 
 
