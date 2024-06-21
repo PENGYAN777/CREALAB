@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Define a variable with a numerical value of CPU cores
-cpu=4
+cpu=8
 
 # change marker name from integer to string for grid_INL.su2
 # Assigning variables
@@ -108,7 +108,7 @@ mpirun -n $cpu SU2_CFD su2.cfg
 
 #sed -i 's/^\s*READ_BINARY_RESTART=.*$/READ_BINARY_RESTART= NO/' su2.cfg
 sed -i 's/^\s*RESTART_SOL=.*$/RESTART_SOL= YES/' su2.cfg # THIS IS FOR RESTART AT HIGHER LEVELS!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-sed -i 's/^\s*ITER=.*$/ITER = 500/' su2.cfg
+sed -i 's/^\s*ITER=.*$/ITER = 3000/' su2.cfg
 sed -i 's/^\s*MUSCL_FLOW=.*$/MUSCL_FLOW= YES/' su2.cfg
 sed -i 's/^\s*SOLUTION_FILENAME=.*$/SOLUTION_FILENAME= 'solution_interpolated.dat'/' su2.cfg
 sed -i 's/^\s*MARKER_RIEMANN=.*$/MARKER_RIEMANN= ( 1, TOTAL_CONDITIONS_PT, 1.4e6, 503.84, 1.0, 0.0, 0.0, 3, STATIC_PRESSURE, 2.23e5, 0, 0, 0.0, 0.0 )/' su2.cfg

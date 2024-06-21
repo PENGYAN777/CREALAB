@@ -41,14 +41,14 @@ axes.plot(t101.iloc[:,2] ,t101.iloc[:,3] , color=colors[1], lw=lw, label="level 
 
 
 
-# axes.set_xlim([0, 3000])
-# axes.set_ylim([0,1])
+axes.set_xlim([0, 3000])
+axes.set_ylim([-6,0])
 axes.set_xlabel('Number of iteration',fontsize=12)
 axes.set_ylabel('Residual of density',fontsize=12) 
 # axes.set_title('$P/P_t$ along nozzle centerline',fontsize=14)
 axes.legend(loc=0) # 
 
-fig2.savefig("jet_mm_rans_adapt_small_resudial.pdf")
+fig2.savefig("jet_mm_rans_u3_small_resudial.pdf")
 
 
 
