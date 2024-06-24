@@ -111,7 +111,6 @@ sed -i 's/^\s*RESTART_SOL=.*$/RESTART_SOL= YES/' su2.cfg # THIS IS FOR RESTART A
 sed -i 's/^\s*ITER=.*$/ITER = 1000/' su2.cfg
 sed -i 's/^\s*MUSCL_FLOW=.*$/MUSCL_FLOW= YES/' su2.cfg
 sed -i 's/^\s*SOLUTION_FILENAME=.*$/SOLUTION_FILENAME= 'solution_interpolated.dat'/' su2.cfg
-sed -i 's/^\s*MARKER_RIEMANN=.*$/MARKER_RIEMANN= ( 1, TOTAL_CONDITIONS_PT, 1.4e6,503.84, 1.0, 0.0, 0.0, 3, TOTAL_CONDITIONS_PT, 1.34e5, 300, 1.0, 0.0, 0.0 )/' su2.cfg
 
 #delete and add a new line
 pattern1="^MARKER_EULER"
