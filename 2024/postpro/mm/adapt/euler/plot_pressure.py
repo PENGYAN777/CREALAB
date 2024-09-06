@@ -16,70 +16,52 @@ from IPython import get_ipython;
 get_ipython().magic('reset -sf')
 os.system('clear')
 
-xp = pd.read_csv("../../taps_position.csv", " ", skiprows=0)
-xp = xp.squeeze() # from dataframe to array
-ex = pd.read_csv("../pressure.csv", ",",skiprows=0, usecols=range(2,13))
 
+m5 = pd.read_csv("m5.csv", ",", skiprows=0)
+m6 = pd.read_csv("m6.csv", ",", skiprows=0)
+q1d= pd.read_csv("../Q1D/z6.csv", ",", skiprows=0)
 
-t103 = pd.read_csv("t103.csv", ",", skiprows=0)
-t104 = pd.read_csv("t104.csv", ",", skiprows=0)
-
-
-
-
-
-pt = [1.415e6, 5.3420e5]
-
-# axes.yaxis.set_major_formatter(FormatStrFormatter('%.2f'))
-
-# # fig 1
-# fig1 = plt.figure( dpi=300)
-# lw = 2
-# axes = fig1.add_axes([0.15, 0.15, 0.7, 0.7]) #size of figure
-# axes.plot(t5.iloc[:,-3] ,t5.iloc[:,6]/pt[0] , 'k', lw=lw, label="CFD")
-# axes.errorbar(xp ,ex.iloc[0,:]  , yerr = ex.iloc[1,:] , fmt = 'o',color = 'k', 
-#             ecolor = 'k', elinewidth = 1, capsize=5, label="Ex")
-# # # compute diff
-# # ax2 = axes.twinx()
-# # idx = np.zeros(xp.size) # 
-# # diff = np.zeros(xp.size) # diff between cfd and ex
-# # for i in xp.index:
-# #     idx[i] = np.argmin(abs(xp[i]-t5.iloc[:,-3])) # t5
-# #     #pt[0] for t5, shitf of 1,  ex.iloc[0] for t5,shitf of 2 for next case
-# #     diff[i] = (t5.iloc[int(idx[i]),6]/pt[0]-ex.iloc[0,i])/ex.iloc[0,i]*100 
-    
-
-# # ax2.plot(xp, abs(diff) , 'b*', lw=lw)    
-# # ax2.set_ylabel('$\Delta_{P/P_t}$(%)',fontsize=12) 
-
-# axes.set_xlim([40, 160])
-# axes.set_ylim([0,1])
-# axes.set_xlabel('$X[mm]$',fontsize=12)
-# axes.set_ylabel('$P/P_t$',fontsize=12) 
-# axes.set_title('$P/P_t$ along nozzle centerline',fontsize=14)
-# axes.legend(loc=1) # 
-
-
-# fig1.savefig("jet_nn_t5.pdf")
 
 # fig 2
 fig2 = plt.figure( dpi=300)
 lw = 2
 axes = fig2.add_axes([0.15, 0.15, 0.7, 0.7]) #size of figure
-axes.plot(t103.iloc[:,-3] ,t103.iloc[:,10]/pt[0] , 'k', lw=lw, label="n=k")
-axes.plot(t104.iloc[:,-3] ,t104.iloc[:,10]/pt[0] , 'k--', lw=lw, label="n=k")
-axes.errorbar(xp ,ex.iloc[0,:]  , yerr = ex.iloc[1,:] , fmt = 'o',color = 'k', 
-            ecolor = 'k', elinewidth = 1, capsize=5, label="Ex")
+axes.plot(m5.iloc[:,-3]*1e3 ,m5.iloc[:,2] , 'k', lw=lw, label="level 5")
+axes.plot(m6.iloc[:,-3]*1e3 ,m6.iloc[:,2] , 'k--', lw=lw, label="level 6")
+axes.plot(q1d.iloc[:,-2]*1e3 ,q1d.iloc[:,6] , 'b', lw=lw, label="Q1D")
 
 
-axes.set_xlim([40, 160])
-axes.set_ylim([0,1])
-axes.set_xlabel('$X[mm]$',fontsize=12)
-axes.set_ylabel('$P/P_t$',fontsize=12) 
-axes.set_title('$P/P_t$ along nozzle centerline',fontsize=14)
-axes.legend(loc=1) # 
+# axes.set_xlim([0, 43.9])
+# axes.set_ylim([0,1])
+axes.set_xlabel('X[mm]',fontsize=12)
+axes.set_ylabel('Mach',fontsize=12) 
+# axes.set_title('$P/P_t$ along nozzle centerline',fontsize=14)
+axes.legend(loc=0) # 
 
-fig2.savefig("jet_mm_rans_t10.pdf")
+fig2.savefig("jet_mm_euler_adapt_gv_m.pdf")
+
+# fig 3
+fig3 = plt.figure( dpi=300)
+lw = 2
+axes = fig3.add_axes([0.15, 0.15, 0.7, 0.7]) #size of figure
+axes.plot(m5.iloc[:,-3]*1e3 ,m5.iloc[:,6] , 'k', lw=lw, label="level 5")
+axes.plot(m6.iloc[:,-3]*1e3 ,m6.iloc[:,6] , 'k--', lw=lw, label="level 6")
+axes.plot(q1d.iloc[:,-2]*1e3 ,q1d.iloc[:,2] , 'b', lw=lw, label="Q1D")
+
+
+# axes.set_xlim([0, 43.9])
+# axes.set_ylim([0,1])
+axes.set_xlabel('X[mm]',fontsize=12)
+axes.set_ylabel('Pressure',fontsize=12) 
+# axes.set_title('$P/P_t$ along nozzle centerline',fontsize=14)
+axes.legend(loc=0) # 
+
+fig3.savefig("jet_mm_euler_adapt_gv_p.pdf")
+
+
+
+
+
 
 
 
