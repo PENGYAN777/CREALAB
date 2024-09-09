@@ -38,7 +38,7 @@ fig1 = plt.figure( dpi=300)
 lwh = 2
 axes = fig1.add_axes([0.15, 0.15, 0.7, 0.7]) #size of figure
 axes.plot(inlet.iloc[:,0] , inlet.iloc[:,1], 'r', lw=lwh, label="inlet")
-axes.plot(wall.iloc[:,0] , wall.iloc[:,1], 'k', lw=lwh, label="wall")
+axes.plot(wall.iloc[:,0]*1e3 , wall.iloc[:,1]*1e3, 'k', lw=lwh, label="wall")
 axes.plot(out.iloc[:,0] , out.iloc[:,1], 'b', lw=lwh, label="outlet")
 axes.plot(sym.iloc[:,0] , sym.iloc[:,1], 'g', lw=lwh, label="centerline")
 

@@ -19,7 +19,7 @@ os.system('clear')
 
 
 
-h6 = pd.read_csv("history_6.csv", ",", skiprows=0)
+h6 = pd.read_csv("history.csv", ",", skiprows=0)
 
 nc = 10
 colors = plt.cm.tab20(np.linspace(0, 1, nc))
@@ -32,9 +32,9 @@ fig2 = plt.figure( dpi=300)
 lw = 2
 axes = fig2.add_axes([0.15, 0.15, 0.7, 0.7]) #size of figure
 axes.plot(h6.iloc[:,2] ,h6.iloc[:,3] , color=colors[0], lw=lw, label="$\\rho$")
-# axes.plot(h6.iloc[:,2] ,h6.iloc[:,4] , color=colors[1], lw=lw, label="$\\rho u$")
-# axes.plot(h6.iloc[:,2] ,h6.iloc[:,5] , color=colors[2], lw=lw, label="$\\rho v$")
-# axes.plot(h6.iloc[:,2] ,h6.iloc[:,6] , color=colors[3], lw=lw, label="$\\rho e$")
+axes.plot(h6.iloc[:,2] ,h6.iloc[:,4] , color=colors[1], lw=lw, label="$\\rho u$")
+axes.plot(h6.iloc[:,2] ,h6.iloc[:,5] , color=colors[2], lw=lw, label="$\\rho v$")
+axes.plot(h6.iloc[:,2] ,h6.iloc[:,6] , color=colors[3], lw=lw, label="$\\rho e$")
 
 
 
