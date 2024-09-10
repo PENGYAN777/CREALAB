@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Define a variable with a numerical value of CPU cores
-cpu=4
+cpu=8
 
 
 
