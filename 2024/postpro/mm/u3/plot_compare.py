@@ -17,29 +17,19 @@ get_ipython().magic('reset -sf')
 os.system('clear')
 
 
-
-
-
-q1d= pd.read_csv("../adapt/Q1D/z6.csv", ",", skiprows=0)
-t5s= pd.read_csv("rans_small/t5.csv", ",", skiprows=0)
-t6s= pd.read_csv("rans_small/t6.csv", ",", skiprows=0)
-
-nc = 10
-colors = plt.cm.tab20(np.linspace(0, 1, nc))
-
-
-# axes.yaxis.set_major_formatter(FormatStrFormatter('%.2f'))
-
-# axes.plot(q1d.iloc[:,-2]*1e3 ,q1d.iloc[:,2]*1.4e6 , color=colors[1], lw=lw, label="Q1D")
+m9 = pd.read_csv("m9.csv", ",", skiprows=0)
+m10 = pd.read_csv("m10.csv", ",", skiprows=0)
+q1d= pd.read_csv("../adapt//Q1D/z6.csv", ",", skiprows=0)
 
 
 # fig 2
 fig2 = plt.figure( dpi=300)
 lw = 2
 axes = fig2.add_axes([0.15, 0.15, 0.7, 0.7]) #size of figure
-axes.plot(t5s.iloc[:,-3]*1e3 ,t5s.iloc[:,5] , 'k', lw=lw, label="level 5")
-axes.plot(t6s.iloc[:,-3]*1e3 ,t6s.iloc[:,5] , 'k--', lw=lw, label="level 6")
+axes.plot(m9.iloc[:,-3]*1e3 ,m9.iloc[:,5] , 'k', lw=lw, label="level 9")
+axes.plot(m10.iloc[:,-3]*1e3 ,m10.iloc[:,5] , 'k--', lw=lw, label="level 10")
 axes.plot(q1d.iloc[:,-2]*1e3 ,q1d.iloc[:,6] , 'b', lw=lw, label="Q1D")
+
 
 # axes.set_xlim([0, 43.9])
 # axes.set_ylim([0,1])
@@ -54,18 +44,25 @@ fig2.savefig("jet_mm_rans_u3_gv_m.pdf")
 fig3 = plt.figure( dpi=300)
 lw = 2
 axes = fig3.add_axes([0.15, 0.15, 0.7, 0.7]) #size of figure
-axes.plot(t5s.iloc[:,-3]*1e3 ,t5s.iloc[:,10] , 'k', lw=lw, label="level 5")
-axes.plot(t6s.iloc[:,-3]*1e3 ,t6s.iloc[:,10] , 'k--', lw=lw, label="level 6")
-axes.plot(q1d.iloc[:,-2]*1e3 ,q1d.iloc[:,2]*1.4e6 , 'b', lw=lw, label="Q1D")
+axes.plot(m9.iloc[:,-3]*1e3 ,m9.iloc[:,10] , 'k', lw=lw, label="level 9")
+axes.plot(m10.iloc[:,-3]*1e3 ,m10.iloc[:,10] , 'k--', lw=lw, label="level 10")
+axes.plot(q1d.iloc[:,-2]*1e3 ,q1d.iloc[:,2] , 'b', lw=lw, label="Q1D")
+
 
 # axes.set_xlim([0, 43.9])
 # axes.set_ylim([0,1])
 axes.set_xlabel('X[mm]',fontsize=12)
-axes.set_ylabel('Pressure[Pa]',fontsize=12) 
+axes.set_ylabel('Pressure',fontsize=12) 
 # axes.set_title('$P/P_t$ along nozzle centerline',fontsize=14)
 axes.legend(loc=0) # 
 
 fig3.savefig("jet_mm_rans_u3_gv_p.pdf")
+
+
+
+
+
+
 
 
 

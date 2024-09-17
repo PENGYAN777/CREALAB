@@ -47,14 +47,14 @@ ps = CP.CoolProp.PropsSI('P','T',Ts,'Q',0,fluidname)
 # ----------------
 # Contour of Z and Gamma
 # ----------------
-n = 200 # number of points
+n = 400 # number of points
 x = np.linspace(Tmin, Tmax,n)
-y = np.linspace(1e5, 1e7,n)
+y = np.linspace(0.5e5, 1e7,n)
 X,Y = np.meshgrid(x,y)
 Z =  CP.CoolProp.PropsSI('Z','T',X,'P',Y,fluidname)
 Gamma =  CP.CoolProp.PropsSI('fundamental_derivative_of_gas_dynamics','T',X,'P',Y,fluidname)
 #print(Z.shape)
-levels = [0.4, 0.5, 0.6, 0.7, 0.8, 0.9]
+levels = [0.6, 0.7, 0.8, 0.9, 0.95, 0.98, ]
 cp = ax.contour(X, Y, Z, levels, colors='black', linestyles='dashed')
 plt.clabel(cp, inline=True,  fontsize=10)
 plt.contourf(X, Y, Gamma, [0.6,0.7,0.8,0.9,1.0,1.1,1.2,1.3,1.4], cmap='rainbow')
@@ -80,15 +80,15 @@ zt_p = [1.4e6, ]
 zt_t = [503.84, ]
 plt.plot(zt_t,zt_p,'ro' , lw = lw, label = "$Z_t$=0.6")
 
-za_p = [6.69e5, ]
-za_t = [490, ]
+za_p = [6.69e5, 2.23e5, 1.34e5, ]
+za_t = [495, 485, 490, ]
 plt.plot(za_t,za_p,'bo' , lw = lw, label = "$Z_a$")
 
 
 
 ax.legend(loc=3) # 2 means left top
 
-plt.ylim(1e5,1e7)
+plt.ylim(0.5e5,1e7)
 plt.gca().set_yscale('log')
 plt.gca().set_xlim(Tmin, Tmax)
 plt.ylabel('P [Pa]')
