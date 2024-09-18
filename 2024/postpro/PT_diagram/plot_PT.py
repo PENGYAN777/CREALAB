@@ -80,8 +80,8 @@ zt_p = [1.4e6, ]
 zt_t = [503.84, ]
 plt.plot(zt_t,zt_p,'ro' , lw = lw, label = "$Z_t$=0.6")
 
-za_p = [6.69e5, 2.23e5, 1.34e5, ]
-za_t = [495, 485, 490, ]
+za_p = [6.69e5, 2.23e5, 1.34e5, 0.67e5, ]
+za_t = [495, 490, 485, 467.5, ]
 plt.plot(za_t,za_p,'bo' , lw = lw, label = "$Z_a$")
 
 

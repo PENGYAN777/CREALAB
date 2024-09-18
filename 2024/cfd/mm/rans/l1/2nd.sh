@@ -7,7 +7,11 @@ cpu=8
 # Assigning variables
 FILENAME1="initial_grid/grid.INL.su2"
 OLD_WORD2="MARKER_TAG=       2"
-NEW_WORD2="MARKER_TAG=       wall"
+NEW_WORD2="MARKER_TAG=       w2"
+OLD_WORD3="MARKER_TAG=       3"
+NEW_WORD3="MARKER_TAG=       w3"
+OLD_WORD4="MARKER_TAG=       4"
+NEW_WORD4="MARKER_TAG=       w4"
 
 # Check if the file exists
 if [ ! -f "$FILENAME1" ]; then
@@ -20,6 +24,8 @@ echo "Replacing '$OLD_WORD2' with '$NEW_WORD2' in file '$FILENAME1'."
 
 # Perform the replacement using sed
 sed -i.bak "s/$OLD_WORD2/$NEW_WORD2/g" "$FILENAME1"
+sed -i.bak "s/$OLD_WORD3/$NEW_WORD3/g" "$FILENAME1"
+sed -i.bak "s/$OLD_WORD4/$NEW_WORD4/g" "$FILENAME1"
 
 # Verify the replacement
 if grep -q "$NEW_WORD6" "$FILENAME2"; then
@@ -108,10 +114,11 @@ mpirun -n $cpu SU2_CFD su2.cfg
 
 #sed -i 's/^\s*READ_BINARY_RESTART=.*$/READ_BINARY_RESTART= NO/' su2.cfg
 sed -i 's/^\s*RESTART_SOL=.*$/RESTART_SOL= YES/' su2.cfg # THIS IS FOR RESTART AT HIGHER LEVELS!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-sed -i 's/^\s*ITER=.*$/ITER = 1000/' su2.cfg
+sed -i 's/^\s*ITER=.*$/ITER= 3000/' su2.cfg
 sed -i 's/^\s*MUSCL_FLOW=.*$/MUSCL_FLOW= YES/' su2.cfg
 sed -i 's/^\s*SOLUTION_FILENAME=.*$/SOLUTION_FILENAME= 'solution_interpolated.dat'/' su2.cfg
-sed -i 's/^\s*FLUID_MODEL=.*$/FLUID_MODEL = PR_GAS/' su2.cfg
+sed -i 's/^\s*MARKER_RIEMANN=.*$/MARKER_RIEMANN= ( 1, TOTAL_CONDITIONS_PT, 1.4e6, 503.84, 1.0, 0.0, 0.0, 5, STATIC_PRESSURE, 0.67e5, 0, 0, 0.0, 0.0 )/' su2.cfg
+#sed -i 's/^\s*MARKER_RIEMANN=.*$/MARKER_RIEMANN= ( 1, TOTAL_CONDITIONS_PT, 1.4e6, 503.84, 1.0, 0.0, 0.0, 5, TOTAL_CONDITIONS_PT,, 0.67e5, 500, 1.0, 0.0, 0.0 )/' su2.cfg
 
 #delete and add a new line
 pattern1="^MARKER_EULER"
@@ -192,6 +199,8 @@ do
 	FILENAME2="admesh.INL.su2"
 	# Perform the replacement using sed
 	sed -i.bak "s/$OLD_WORD2/$NEW_WORD2/g" "$FILENAME2"
+	sed -i.bak "s/$OLD_WORD3/$NEW_WORD3/g" "$FILENAME2"
+	sed -i.bak "s/$OLD_WORD4/$NEW_WORD4/g" "$FILENAME2"
 
 	mpirun -n $cpu SU2_CFD su2.cfg
 
