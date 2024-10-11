@@ -76,8 +76,8 @@ test points
 nc = 10
 colors = plt.cm.tab20(np.linspace(0, 1, nc))
 
-zt_p = [1.0e5, ]
-zt_t = [513.15, ]
+zt_p = [1.0e5, 5.0e5,  ]
+zt_t = [513.15, 513.15, ]
 plt.plot(zt_t,zt_p,'ro' , lw = lw, label = "$Z_t$")
 
 # za_p = [6.69e5, 2.23e5, 1.34e5, 0.67e5, ]
