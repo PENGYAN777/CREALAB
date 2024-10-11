@@ -57,4 +57,4 @@ axes.set_ylabel('$Y[mm]$',fontsize=12)
 # axes.set_title('Geometry of the wedge',fontsize=14)
 axes.legend(loc='center', fontsize=6) # 
 
-fig1.savefig("cfd_geo.png")
+fig1.savefig("cfd_geo.pdf")

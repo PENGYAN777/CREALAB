@@ -47,7 +47,7 @@ ps = CP.CoolProp.PropsSI('P','T',Ts,'Q',0,fluidname)
 # ----------------
 # Contour of Z and Gamma
 # ----------------
-n = 400 # number of points
+n = 200 # number of points
 x = np.linspace(Tmin, Tmax,n)
 y = np.linspace(0.5e5, 1e7,n)
 X,Y = np.meshgrid(x,y)
@@ -76,13 +76,13 @@ test points
 nc = 10
 colors = plt.cm.tab20(np.linspace(0, 1, nc))
 
-zt_p = [1.4e6, ]
-zt_t = [503.84, ]
-plt.plot(zt_t,zt_p,'ro' , lw = lw, label = "$Z_t$=0.6")
+zt_p = [1.0e5, ]
+zt_t = [513.15, ]
+plt.plot(zt_t,zt_p,'ro' , lw = lw, label = "$Z_t$")
 
-za_p = [6.69e5, 2.23e5, 1.34e5, 0.67e5, ]
-za_t = [495, 490, 485, 467.5, ]
-plt.plot(za_t,za_p,'bo' , lw = lw, label = "$Z_a$")
+# za_p = [6.69e5, 2.23e5, 1.34e5, 0.67e5, ]
+# za_t = [495, 490, 485, 467.5, ]
+# plt.plot(za_t,za_p,'bo' , lw = lw, label = "$Z_a$")
 
 
 
