@@ -17,8 +17,8 @@ get_ipython().magic('reset -sf')
 os.system('clear')
 
 
-m5 = pd.read_csv("m8.csv", ",", skiprows=0)
-m6 = pd.read_csv("m9.csv", ",", skiprows=0)
+m5 = pd.read_csv("m9.csv", ",", skiprows=0)
+m6 = pd.read_csv("m10.csv", ",", skiprows=0)
 # q1d= pd.read_csv("../Q1D/z6.csv", ",", skiprows=0)
 
 
@@ -26,8 +26,8 @@ m6 = pd.read_csv("m9.csv", ",", skiprows=0)
 fig2 = plt.figure( dpi=300)
 lw = 2
 axes = fig2.add_axes([0.15, 0.15, 0.7, 0.7]) #size of figure
-axes.plot(m5.iloc[:,-3]*1e3 ,m5.iloc[:,5] , 'k', lw=lw, label="n = 72k")
-axes.plot(m6.iloc[:,-3]*1e3 ,m6.iloc[:,5] , 'k--', lw=lw, label="n = 77k")
+axes.plot(m5.iloc[:,-3]*1e3 ,m5.iloc[:,5] , 'k', lw=lw, label="n = 114k")
+axes.plot(m6.iloc[:,-3]*1e3 ,m6.iloc[:,5] , 'k--', lw=lw, label="n = 144k")
 # axes.plot(q1d.iloc[:,-2]*1e3 ,q1d.iloc[:,6] , 'b', lw=lw, label="Q1D")
 
 
@@ -44,8 +44,8 @@ fig2.savefig("mm_pr50_gv_m.pdf")
 fig3 = plt.figure( dpi=300)
 lw = 2
 axes = fig3.add_axes([0.15, 0.15, 0.7, 0.7]) #size of figure
-axes.plot(m5.iloc[:,-3]*1e3 ,m5.iloc[:,10]/5 , 'k', lw=lw, label="n = 72k")
-axes.plot(m6.iloc[:,-3]*1e3 ,m6.iloc[:,10]/5 , 'k--', lw=lw, label="n = 77k")
+axes.plot(m5.iloc[:,-3]*1e3 ,m5.iloc[:,10] , 'k', lw=lw, label="n = 114k")
+axes.plot(m6.iloc[:,-3]*1e3 ,m6.iloc[:,10] , 'k--', lw=lw, label="n = 144k")
 # axes.plot(q1d.iloc[:,-2]*1e3 ,q1d.iloc[:,2] , 'b', lw=lw, label="Q1D")
 
 
