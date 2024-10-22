@@ -16,9 +16,9 @@ from IPython import get_ipython;
 get_ipython().magic('reset -sf')
 os.system('clear')
 
-
-m5 = pd.read_csv("m7.csv", ",", skiprows=0)
-m6 = pd.read_csv("m10.csv", ",", skiprows=0)
+m8 = pd.read_csv("m8.csv", ",", skiprows=0)
+m9 = pd.read_csv("m9.csv", ",", skiprows=0)
+m10 = pd.read_csv("m10.csv", ",", skiprows=0)
 # q1d= pd.read_csv("../Q1D/z6.csv", ",", skiprows=0)
 
 
@@ -26,8 +26,9 @@ m6 = pd.read_csv("m10.csv", ",", skiprows=0)
 fig2 = plt.figure( dpi=300)
 lw = 2
 axes = fig2.add_axes([0.15, 0.15, 0.7, 0.7]) #size of figure
-axes.plot(m5.iloc[:,-3]*1e3 ,m5.iloc[:,5] , 'k', lw=lw, label="n = 131k")
-axes.plot(m6.iloc[:,-3]*1e3 ,m6.iloc[:,5] , 'k--', lw=lw, label="n = 189k")
+axes.plot(m8.iloc[:,-3]*1e3 ,m8.iloc[:,5] , 'k', lw=lw, label="n = 160k")
+axes.plot(m9.iloc[:,-3]*1e3 ,m9.iloc[:,5] , 'k--', lw=lw, label="n = 178k")
+axes.plot(m10.iloc[:,-3]*1e3 ,m10.iloc[:,5] , 'k-.', lw=lw, label="n = 190k")
 # axes.plot(q1d.iloc[:,-2]*1e3 ,q1d.iloc[:,6] , 'b', lw=lw, label="Q1D")
 
 
@@ -44,8 +45,9 @@ fig2.savefig("mm_pr10_gv_m.pdf")
 fig3 = plt.figure( dpi=300)
 lw = 2
 axes = fig3.add_axes([0.15, 0.15, 0.7, 0.7]) #size of figure
-axes.plot(m5.iloc[:,-3]*1e3 ,m5.iloc[:,10] , 'k', lw=lw, label="n = 131k")
-axes.plot(m6.iloc[:,-3]*1e3 ,m6.iloc[:,10] , 'k--', lw=lw, label="n = 189k")
+axes.plot(m8.iloc[:,-3]*1e3 ,m8.iloc[:,10]/m10.iloc[0,10] , 'k', lw=lw, label="n = 160k")
+axes.plot(m9.iloc[:,-3]*1e3 ,m9.iloc[:,10]/m10.iloc[0,10] , 'k--', lw=lw, label="n = 178k")
+axes.plot(m10.iloc[:,-3]*1e3 ,m10.iloc[:,10]/m10.iloc[0,10] , 'k-.', lw=lw, label="n = 190k")
 # axes.plot(q1d.iloc[:,-2]*1e3 ,q1d.iloc[:,2] , 'b', lw=lw, label="Q1D")
 
 
