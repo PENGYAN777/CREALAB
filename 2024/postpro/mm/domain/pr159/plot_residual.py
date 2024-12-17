@@ -18,8 +18,10 @@ os.system('clear')
 
 
 
-
+# 
 h6 = pd.read_csv("history.csv", ",", skiprows=0)
+# h6 = pd.read_csv("history_large.csv", ",", skiprows=0)
+
 
 nc = 10
 colors = plt.cm.tab20(np.linspace(0, 1, nc))
@@ -37,9 +39,6 @@ axes.plot(h6.iloc[:,2] ,h6.iloc[:,5] , color=colors[2], lw=lw, label="$\\rho v$"
 axes.plot(h6.iloc[:,2] ,h6.iloc[:,6] , color=colors[3], lw=lw, label="$\\rho e$")
 
 
-
-
-
 # axes.set_xlim([40, 160])
 # axes.set_ylim([0,1])
 axes.set_xlabel('Number of iteration',fontsize=12)
@@ -48,6 +47,7 @@ axes.set_ylabel('Residuals',fontsize=12)
 axes.legend(loc=0) # 
 
 fig2.savefig("mm_pr159_resudial.pdf")
+
 
 
 
